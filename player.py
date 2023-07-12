@@ -152,12 +152,12 @@ class Player:
             if(not self.is_on_platfom(lista_plataforma,lista_enemy_lvl_1)):
                 if(self.move_y == 0):
                     self.is_fall = True
-                    self.add_y(self.gravity)  
-                
+                    self.add_y(self.gravity)
+
             else:
                 if (self.is_jump): 
-                    self.jump(False)
-                    
+                    self.jump(False) 
+
                 self.is_fall = False  
 
     def is_on_platfom(self,lista_plataforma,lista_enemy_lvl_1):
@@ -169,7 +169,7 @@ class Player:
                 break  
 
         for enemigo in lista_enemy_lvl_1:
-            
+
             if self.rect_ground_collition.colliderect(enemigo.rect_collition_side) and  (enemigo.lives == 3 or enemigo.is_live):
                 self.restart()
                 self.get_hit()

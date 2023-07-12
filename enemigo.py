@@ -4,7 +4,7 @@ from auxiliar import Auxiliar
 
 class Enemy():
     
-    def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale=1,interval_time_jump=100,direccion=None) -> None:
+    def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale=1,direccion=None) -> None:
         self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("images\Snail\Walk (38x24).png",10,1,False,step=1,scale=p_scale)
         self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("images\Snail\Walk (38x24).png",10,1,True,step=1,scale=p_scale)
         self.idle_l = Auxiliar.getSurfaceFromSpriteSheet("images\Snail\Shell Idle (38x24).png",6,1,False,step=1,scale=p_scale)
@@ -50,7 +50,6 @@ class Enemy():
 
         self.tiempo_transcurrido = 0
         self.tiempo_last_jump = 0 
-        self.interval_time_jump = interval_time_jump
    
     def change_x(self,delta_x):
         self.rect.x += delta_x
@@ -73,7 +72,7 @@ class Enemy():
             
             if self.lives == 3:
                 self.change_x(self.move_x)
-                if self.is_direction:
+                if self.is_direction :
                     if self.contador_izq <= 50 :
                         self.move_x = -self.speed_walk
                         self.direction = DIRECTION_L

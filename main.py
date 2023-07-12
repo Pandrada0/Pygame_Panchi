@@ -11,6 +11,20 @@ from tiempo import Tiempo
 from lives import Live
 from boton import Boton
 from portal import Portal
+import json
+
+
+def leer_json(data : str) -> list:
+    '''load the information from a json to a list
+    param: a path of an archive json
+    return: a list of pokemons'''
+    with open(data,"r") as file_object:
+        lista_lvls = json.load(file_object)
+        lista_lvls = lista_lvls["Game"]
+        return lista_lvls
+
+
+lista_lvls = leer_json("data.json")
 
 pygame.init()
 clock = pygame.time.Clock()
@@ -25,55 +39,22 @@ def lvl_1()->None:
     lista_botin_lvl_1 = []
     lista_enemy_lvl_1 = []
 
-    lista_plataformas_lvl_1.append(Platform(x=0,y=700,width=400,height=100,screen=screen_lvl_1,path=IMAGE_TILTES,type=2))
-    lista_plataformas_lvl_1.append(Platform(x=400,y=700,width=100,height=100,screen=screen_lvl_1,path=IMAGE_TILTES,type=3))
-    lista_plataformas_lvl_1.append(Platform(x=580,y=700,width=70,height=100,screen=screen_lvl_1,path=IMAGE_TILTES,type=1))
-    lista_plataformas_lvl_1.append(Platform(x=650,y=700,width=150,height=100,screen=screen_lvl_1,path=IMAGE_TILTES,type=2))
-    lista_plataformas_lvl_1.append(Platform(x=800,y=700,width=50,height=100,screen=screen_lvl_1,path=IMAGE_TILTES,type=3))
-    lista_plataformas_lvl_1.append(Platform(x=1300,y=630,width=200,height=70,screen=screen_lvl_1,path=IMAGE_TILTES,type=2))
-    lista_plataformas_lvl_1.append(Platform(x=1200,y=700,width=200,height=100,screen=screen_lvl_1,path=IMAGE_TILTES,type=1))
-    lista_plataformas_lvl_1.append(Platform(x=1300,y=700,width=200,height=100,screen=screen_lvl_1,path=IMAGE_TILTES,type=2))
-    lista_plataformas_lvl_1.append(Platform(x=300,y=600,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=13))
-    lista_plataformas_lvl_1.append(Platform(x=350,y=600,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=14))
-    lista_plataformas_lvl_1.append(Platform(x=400,y=600,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=15))
-    lista_plataformas_lvl_1.append(Platform(x=500,y=530,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=13))
-    lista_plataformas_lvl_1.append(Platform(x=550,y=530,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=14))
-    lista_plataformas_lvl_1.append(Platform(x=600,y=530,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=15))
-    lista_plataformas_lvl_1.append(Platform(x=650,y=450,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=13))
-    lista_plataformas_lvl_1.append(Platform(x=700,y=450,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=14))
-    lista_plataformas_lvl_1.append(Platform(x=750,y=450,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=15))
-    lista_plataformas_lvl_1.append(Platform(x=300,y=440,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=13))
-    lista_plataformas_lvl_1.append(Platform(x=350,y=440,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=14))
-    lista_plataformas_lvl_1.append(Platform(x=400,y=440,width=80,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=15))
-    lista_plataformas_lvl_1.append(Platform(x=900,y=650,width=50,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=18))
-    lista_plataformas_lvl_1.append(Platform(x=1000,y=650,width=50,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=18))
-    lista_plataformas_lvl_1.append(Platform(x=1100,y=650,width=50,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=18))
-    lista_plataformas_lvl_1.append(Platform(x=900,y=450,width=50,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=18))
-    lista_plataformas_lvl_1.append(Platform(x=1000,y=400,width=50,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=18))
-    lista_plataformas_lvl_1.append(Platform(x=1100,y=350,width=50,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=18))
-    lista_plataformas_lvl_1.append(Platform(x=1200,y=300,width=50,height=50,screen=screen_lvl_1,path=IMAGE_TILTES,type=18))
-
-    lista_botin_lvl_1.append(Botin(x=320,y=350,w=50,h=50,type=1,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=370,y=350,w=50,h=50,type=1,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=420,y=350,w=50,h=50,type=1,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=900,y=600,w=50,h=50,type=2,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=1000,y=600,w=50,h=50,type=2,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=1100,y=600,w=50,h=50,type=2,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=900,y=400,w=50,h=50,type=3,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=1000,y=350,w=50,h=50,type=3,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=1100,y=300,w=50,h=50,type=3,filas=1,columnas=17))
-    lista_botin_lvl_1.append(Botin(x=1200,y=250,w=50,h=50,type=3,filas=1,columnas=17))
+    for plataforma in lista_lvls["lvl1"]["plataforma"]:
+        lista_plataformas_lvl_1.append(Platform(plataforma["x"],plataforma["y"],plataforma["width"],plataforma["height"],screen_lvl_1,IMAGE_TILTES,plataforma["type"]))
     
+    for botin in lista_lvls["lvl1"]["botin"]:
+        lista_botin_lvl_1.append(Botin(botin["x"],botin["y"],botin["w"],botin["h"],botin["type"],botin["filas"],botin["columnas"]))
+ 
+    for enemigo in lista_lvls["lvl1"]["enemigo"]:
+        print(enemigo)
+        lista_enemy_lvl_1.append(Enemy(enemigo["x"],enemigo["y"],enemigo["speed_walk"],enemigo["speed_run"],enemigo["gravity"],enemigo["jump_power"],enemigo["frame_rate_ms"],enemigo["move_rate_ms"],enemigo["jump_height"],enemigo["p_scale"],enemigo["direccion"]))
+  
     fondo_lvl_1 = Wallpaper(FONDO_LVL_1,screen_lvl_1,x=0,y=0,w=2,h=5)
     imagen_agua = Wallpaper(FONDO_AGUA,screen_lvl_1,x=10,y=725,w=100,h=50)
 
     flecha = Boton(x= 10,y=650,w=50,h=50,path=FLECHA_INICIO)
     portal = Portal(x= 1380,y=485,w=150,h=150,frame_rate_ms=5)
    
-    lista_enemy_lvl_1.append(Enemy(x=350,y=550,speed_run=40,speed_walk=1,gravity=10,jump_power=10,frame_rate_ms=20,move_rate_ms=50,jump_height=100,p_scale=2,direccion=True))
-    lista_enemy_lvl_1.append(Enemy(x=1250,y=650,speed_run=40,speed_walk=1,gravity=10,jump_power=10,frame_rate_ms=20,move_rate_ms=50,jump_height=100,p_scale=2,direccion=True))
-    lista_enemy_lvl_1.append(Enemy(x=700,y=400,speed_run=40,speed_walk=1,gravity=10,jump_power=10,frame_rate_ms=20,move_rate_ms=50,jump_height=100,p_scale=2,direccion=False))
-
     player_1 = Player(x=0,y=550,speed_walk=10,speed_run=40,gravity=15,jump_power=60,interval_time_jump=40,frame_rate_ms=15,jump_height=60)
 
     life_count = Live(x=1200,y=10,w=50,h=40,live_x=1300,live_y=200,live_w=100,live_h=100)
@@ -152,73 +133,22 @@ def lvl_2(player_1,scores)->None:
     lista_botin_lvl_2 = []
     lista_enemy_lvl_2 = []
 
-    lista_plataformas_lvl_2.append(Platform(x=0,y=700,width=300,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))
-    lista_plataformas_lvl_2.append(Platform(x=300,y=700,width=100,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=3))
-    lista_plataformas_lvl_2.append(Platform(x=450,y=700,width=50,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))
-    lista_plataformas_lvl_2.append(Platform(x=550,y=700,width=50,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))
-    lista_plataformas_lvl_2.append(Platform(x=650,y=700,width=50,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))
-    lista_plataformas_lvl_2.append(Platform(x=750,y=700,width=50,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))
-    lista_plataformas_lvl_2.append(Platform(x=850,y=700,width=50,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))
-    lista_plataformas_lvl_2.append(Platform(x=950,y=700,width=50,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))  
-    lista_plataformas_lvl_2.append(Platform(x=1050,y=700,width=50,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))  
-    lista_plataformas_lvl_2.append(Platform(x=1150,y=700,width=200,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=1))
-    lista_plataformas_lvl_2.append(Platform(x=1400,y=630,width=100,height=70,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=1))
-    lista_plataformas_lvl_2.append(Platform(x=1300,y=700,width=200,height=100,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=2))
-    lista_plataformas_lvl_2.append(Platform(x=1180,y=550,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=14))
-    lista_plataformas_lvl_2.append(Platform(x=1230,y=550,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=15))
-    lista_plataformas_lvl_2.append(Platform(x=1280,y=550,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=16))
-    lista_plataformas_lvl_2.append(Platform(x=1380,y=480,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=14))
-    lista_plataformas_lvl_2.append(Platform(x=1430,y=480,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=15))
-    lista_plataformas_lvl_2.append(Platform(x=1480,y=480,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=16))
-    lista_plataformas_lvl_2.append(Platform(x=1380,y=350,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=14))
-    lista_plataformas_lvl_2.append(Platform(x=1430,y=350,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=15))
-    lista_plataformas_lvl_2.append(Platform(x=1480,y=350,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=16))
-    lista_plataformas_lvl_2.append(Platform(x=1180,y=400,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=14))
-    lista_plataformas_lvl_2.append(Platform(x=1230,y=400,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=15))
-    lista_plataformas_lvl_2.append(Platform(x=1280,y=400,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=16))
-    lista_plataformas_lvl_2.append(Platform(x=350,y=430,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=14))
-    lista_plataformas_lvl_2.append(Platform(x=400,y=430,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=15))
-    lista_plataformas_lvl_2.append(Platform(x=450,y=430,width=80,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=16))
-    lista_plataformas_lvl_2.append(Platform(x=900,y=450,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=1000,y=500,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=1100,y=450,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=800,y=400,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=685,y=450,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=570,y=430,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=250,y=400,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=170,y=330,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18))
-    lista_plataformas_lvl_2.append(Platform(x=1340,y=250,width=50,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=18)) 
-    lista_plataformas_lvl_2.append(Platform(x=400,y=200,width=200,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=14))
-    lista_plataformas_lvl_2.append(Platform(x=600,y=200,width=500,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=15))
-    lista_plataformas_lvl_2.append(Platform(x=1100,y=200,width=200,height=50,screen=screen_lvl_2,path=IMAGE_TILTES_2,type=16))
-   
-    lista_botin_lvl_2.append(Botin(x=450,y=600,w=50,h=50,type=8,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=550,y=600,w=50,h=50,type=8,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=650,y=600,w=50,h=50,type=8,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=760,y=600,w=50,h=50,type=8,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=850,y=600,w=50,h=50,type=8,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=950,y=600,w=50,h=50,type=8,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=1050,y=600,w=50,h=50,type=8,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=250,y=350,w=50,h=50,type=9,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=570,y=380,w=50,h=50,type=9,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=685,y=400,w=50,h=50,type=9,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=800,y=340,w=50,h=50,type=9,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=900,y=390,w=50,h=50,type=9,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=1000,y=440,w=50,h=50,type=9,filas=1,columnas=17))
-    lista_botin_lvl_2.append(Botin(x=1100,y=390,w=50,h=50,type=9,filas=1,columnas=17))
+
+    for plataforma in lista_lvls["lvl2"]["plataforma"]:
+        lista_plataformas_lvl_2.append(Platform(plataforma["x"],plataforma["y"],plataforma["width"],plataforma["height"],screen_lvl_2,IMAGE_TILTES_2,plataforma["type"]))
     
+    for botin in lista_lvls["lvl2"]["botin"]:
+        lista_botin_lvl_2.append(Botin(botin["x"],botin["y"],botin["w"],botin["h"],botin["type"],botin["filas"],botin["columnas"]))
+ 
+    for enemigo in lista_lvls["lvl2"]["enemigo"]:
+        lista_enemy_lvl_2.append(Enemy(enemigo["x"],enemigo["y"],enemigo["speed_walk"],enemigo["speed_run"],enemigo["gravity"],enemigo["jump_power"],enemigo["frame_rate_ms"],enemigo["move_rate_ms"],enemigo["jump_height"],enemigo["p_scale"],enemigo["direccion"]))
+
+
     life_count = Live(x=1200,y=10,w=50,h=40,live_x=140,live_y=250,live_w=100,live_h=100)
-    
     player_1.restart()
     flecha = Boton(x= 10,y=650,w=50,h=50,path=FLECHA_INICIO)
-    lista_enemy_lvl_2.append(Enemy(x=900,y=150,speed_run=40,speed_walk=1,gravity=10,jump_power=10,frame_rate_ms=50,move_rate_ms=50,jump_height=100,p_scale=2,direccion=True))
-    lista_enemy_lvl_2.append(Enemy(x=700,y=150,speed_run=40,speed_walk=1,gravity=10,jump_power=10,frame_rate_ms=50,move_rate_ms=50,jump_height=100,p_scale=2,direccion=False))
-    lista_enemy_lvl_2.append(Enemy(x=400,y=380,speed_run=40,speed_walk=1,gravity=10,jump_power=10,frame_rate_ms=50,move_rate_ms=50,jump_height=100,p_scale=2,direccion=True))
-
     tiempo_game = Tiempo(x=600,y=10,w=50,minute=5,second=0)
-
     portal = Portal(x= 370,y=60,w=150,h=150,frame_rate_ms=5)
-
     fondo_lvl_2 = Wallpaper(FONDO_LVL_2,screen_lvl_2,x=0,y=0,w=3,h=5)
     fondo_agua = Wallpaper(FONDO_AGUA,screen_lvl_2,x=10,y=725,w=100,h=100)
 
