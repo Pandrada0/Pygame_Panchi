@@ -802,7 +802,7 @@
                     "direccion": 0
                 },
                 {
-                    "x": 1400,
+                    "x": 1300,
                     "y": 560,
                     "speed_walk": 1,
                     "speed_run" : 40,

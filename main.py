@@ -172,7 +172,7 @@ def lvl_2(player_1,scores)->None:
         portal.draw(screen_lvl_2)
 
         if player_1.rect.colliderect(portal.rect_ground_collition):
-            lvl_3()
+            lvl_3(player_1,scores)
             if DEBUG_PRINT:
                 print("Gane el juego")
         
