@@ -15,19 +15,14 @@ import json
 
 
 def leer_json(data : str) -> list:
-    '''load the information from a json to a list
-    param: a path of an archive json
-    return: a list of pokemons'''
     with open(data,"r") as file_object:
         lista_lvls = json.load(file_object)
         lista_lvls = lista_lvls["Game"]
         return lista_lvls
 
-
-lista_lvls = leer_json("data.json")
-
 pygame.init()
 clock = pygame.time.Clock()
+lista_lvls = leer_json("data.json")
 
 def lvl_1()->None:
 
@@ -109,15 +104,10 @@ def lvl_1()->None:
         tiempo_game.update(delta_ms)
         tiempo_game.draw(screen_lvl_1)
 
-        if player_1.lives <= 0:
-            game_over()
+        if player_1.lives <= 0 or tiempo_game.minute == 0 and tiempo_game.second == 0:
+            game_over(scores)
             if DEBUG_PRINT:
-                print("Sin vidas")
-                
-        if tiempo_game.minute == 0 and tiempo_game.second == 0:
-            game_over()        
-            if DEBUG_PRINT:
-                print("sin tiempo")
+                print("Game over")
 
         pygame.display.flip()
 
@@ -200,15 +190,10 @@ def lvl_2(player_1,scores)->None:
         tiempo_game.update(delta_ms)
         tiempo_game.draw(screen_lvl_2)
 
-        if player_1.lives <= 0:
-            game_over()
+        if player_1.lives <= 0 or tiempo_game.minute == 0 and tiempo_game.second == 0:
+            game_over(scores)
             if DEBUG_PRINT:
-                print("Sin vidas ")
-                
-        if tiempo_game.minute == 0 and tiempo_game.second == 0: 
-            game_over()
-            if DEBUG_PRINT:
-                print("sin tiempo")
+                print("Game over")
         
         pygame.display.flip()
 
@@ -233,12 +218,10 @@ def lvl_3(player_1,scores)->None:
         lista_enemy_lvl_3.append(Enemy(enemigo["x"],enemigo["y"],enemigo["speed_walk"],enemigo["speed_run"],enemigo["gravity"],enemigo["jump_power"],enemigo["frame_rate_ms"],enemigo["move_rate_ms"],enemigo["jump_height"],enemigo["p_scale"],enemigo["direccion"]))
 
 
-    
-
-    life_count = Live(x=1200,y=10,w=50,h=40,live_x=140,live_y=250,live_w=100,live_h=100)
+    life_count = Live(x=1200,y=10,w=50,h=40,live_x=265,live_y=600,live_w=100,live_h=100)
     player_1.restart()
     flecha = Boton(x= 10,y=650,w=50,h=50,path=FLECHA_INICIO)
-    tiempo_game = Tiempo(x=600,y=10,w=50,minute=2,second=0)
+    tiempo_game = Tiempo(x=600,y=10,w=50,minute=5,second=0)
     portal = Portal(x= 980,y=150,w=150,h=150,frame_rate_ms=5)
 
     fondo_lvl_3 = Wallpaper(FONDO_LVL_3,screen_lvl_3,x=0,y=0,w=3,h=5)
@@ -293,21 +276,12 @@ def lvl_3(player_1,scores)->None:
         tiempo_game.update(delta_ms)
         tiempo_game.draw(screen_lvl_3)
 
-        if player_1.lives <= 0:
-            game_over()
+        if player_1.lives <= 0 or tiempo_game.minute == 0 and tiempo_game.second == 0:
+            game_over(scores)
             if DEBUG_PRINT:
-                print("Sin vidas ")
-                
-        if tiempo_game.minute == 0 and tiempo_game.second == 0: 
-            game_over()
-            if DEBUG_PRINT:
-                print("sin tiempo")
+                print("Game over")
 
         fondo_agua_move.draw_agua(delta_ms)
-       
-        
-        #fondo_agua_2.draw_agua(delta_ms,True)
-
         pygame.display.flip()
 
 def menu()->None:
@@ -323,7 +297,7 @@ def menu()->None:
 
     fondo = Platform(x= 488,y=520,width=600,height=200,screen=screen_menu,path="images\mi_menu",type=6)
     titulo = Platform(x= 430,y=90,width=700,height=250,screen=screen_menu,path="images\mi_menu",type=10)
-    fuente = pygame.font.Font(None, 100)
+    fuente = pygame.font.Font(None, 120)
     texto_titulo = fuente.render("Panchii ",True,BLACK)
 
     boton_play = Boton(x= 530,y=550,w=150,h=150,path="images\mi_menu\\4.png")
@@ -354,7 +328,7 @@ def menu()->None:
         elif boton_info.click():
             info()
 
-        screen_menu.blit(texto_titulo,(650,160))
+        screen_menu.blit(texto_titulo,(610,160))
         pygame.display.flip()
 
 def setting()->None:
@@ -366,18 +340,20 @@ def setting()->None:
     screen_setting.blit(fondo_setting_scale,fondo_setting_scale.get_rect())
 
     fondo = Platform(x= 450,y=65,width=700,height=700,screen=screen_setting,path="images\setting",type=1)
-    titulo = Platform(x= 480,y=80,width=650,height=300,screen=screen_setting,path="images\setting",type=2)
+    titulo = Platform(x= 490,y=130,width=600,height=300,screen=screen_setting,path="images\setting",type=2)
+    fuente = pygame.font.Font(None, 120)
+    texto_titulo = fuente.render("Setting ",True,WHITE)
 
-    boton_sound_play = Boton(x= 860,y=350,w=100,h=100,path="images\mi_menu\\9.png")
-    boton_sound_stop = Boton(x= 960,y=350,w=100,h=100,path="images\mi_menu\\8.png")
-    boton_prew =  Boton(x= 510,y=350,w=100,h=100,path=PREW_SETTING)
+    boton_sound_play = Boton(x= 960,y=450,w=50,h=50,path="images\mi_menu\\9.png")
+    boton_sound_stop = Boton(x= 1010,y=450,w=50,h=50,path="images\mi_menu\\8.png")
+    boton_prew =  Boton(x= 510,y=450,w=50,h=50,path=PREW_SETTING)
 
-    boton_volumen_menor = Boton(x= 910,y=500,w=50,h=50,path="images\setting\\3.png")
-    boton_volumen_mayor = Boton(x= 1010,y=500,w=50,h=50,path="images\setting\\4.png")
+    boton_volumen_menor = Boton(x= 910,y=600,w=50,h=50,path="images\setting\\3.png")
+    boton_volumen_mayor = Boton(x= 1010,y=600,w=50,h=50,path="images\setting\\4.png")
 
     fuente = pygame.font.Font(None, 60)
     texto_surface_volumen = fuente.render("Ajuste de volumen",True,BLACK)
-    texto_surface_fps = fuente.render("Ajuste de FPS" ,True,BLACK)
+
 
 
     mostrar_setting = True
@@ -409,12 +385,12 @@ def setting()->None:
         elif boton_volumen_mayor.click():
              pygame.mixer.music.set_volume(V_100)
     
-
-        screen_setting.blit(texto_surface_volumen,(510,500))
-        screen_setting.blit(texto_surface_fps,(510,600))
+        
+        screen_setting.blit(texto_titulo,(640,140))
+        screen_setting.blit(texto_surface_volumen,(510,600))
         pygame.display.flip()
 
-def game_over()->None:
+def game_over(scores)->None:
     
     pygame.mixer.music.load(SOUND_GAME_OVER)
     
@@ -432,9 +408,14 @@ def game_over()->None:
     fondo_game_over_scale = pygame.transform.scale(fondo_game_over,(ANCHO_VENTANA,ALTO_VENTANA))
     screen_game_over.blit(fondo_game_over_scale,fondo_game_over_scale.get_rect())
 
+    titulo = Platform(x= 490,y=130,width=600,height=300,screen=screen_game_over,path="images\setting",type=2)
+    fuente = pygame.font.Font(None, 120)
+    texto_titulo = fuente.render("Game Over",True,RED)
+
     fondo = Platform(x= 450,y=65,width=700,height=700,screen=screen_game_over,path="images\game_over",type=1)
-    titulo = Platform(x= 480,y=80,width=650,height=300,screen=screen_game_over,path="images\game_over",type=2)
-    boton_prew =  Boton(x= 510,y=350,w=100,h=100,path=PREW_SETTING)
+    boton_prew =  Boton(x= 510,y=350,w=50,h=50,path=PREW_SETTING)
+    fuente = pygame.font.Font(None, 100)
+    texto_surface_score = fuente.render("Score: {0}".format(scores.score),True,BLACK)
 
     mostar_game_over = True
     while mostar_game_over:
@@ -451,8 +432,9 @@ def game_over()->None:
         if boton_prew.click():
             menu()
 
-
         boton_prew.draw(screen_game_over)
+        screen_game_over.blit(texto_surface_score,(550,580))
+        screen_game_over.blit(texto_titulo,(550,140))
 
         pygame.display.flip()
 
@@ -489,6 +471,9 @@ def info()->None:
         pygame.display.flip()
 
 def win(player_1,scores):
+     
+    pygame.mixer.music.load(SOUND_WIN)
+    pygame.mixer.music.play(-1)
 
     screen_win = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
     pygame.display.set_caption("GAME OVER")
@@ -497,14 +482,14 @@ def win(player_1,scores):
     screen_win.blit(fondo_win_scale,fondo_win_scale.get_rect())
 
     fondo = Platform(x= 450,y=65,width=700,height=700,screen=screen_win,path="images\game_over",type=1)
-    #titulo = Platform(x= 480,y=80,width=650,height=300,screen=screen_win,path="images\game_over",type=2)
-    boton_prew =  Boton(x= 510,y=250,w=100,h=100,path=PREW_SETTING)
+    titulo = Platform(x= 500,y=130,width=600,height=200,screen=screen_win,path="images\setting",type=5)
+    fuente = pygame.font.Font(None, 120)
+    texto_titulo = fuente.render("Winner",True,BLACK)
+    boton_prew =  Boton(x= 510,y=350,w=50,h=50,path=PREW_SETTING)
 
-
-    fuente = pygame.font.Font(None, 70)
+    fuente = pygame.font.Font(None, 120)
     texto_live = fuente.render("Live: {0}".format(player_1.lives),True,SKY_BLUE)
     texto_score = fuente.render("Score: {0}".format(scores.score),True,SKY_BLUE)
-  
   
     mostar_info = True
     while mostar_info:
@@ -520,58 +505,13 @@ def win(player_1,scores):
             pygame.mixer.music.set_volume(V_50)
             menu()
 
+        titulo.draw()
         boton_prew.draw(screen_win)
+
+        screen_win.blit(texto_titulo,(660,210))
         screen_win.blit(texto_live,(500,500))
         screen_win.blit(texto_score,(500,600))
         pygame.display.flip()
-
-def nombre():
-    pygame.init()
-
-    screen = pygame.display.set_mode((500,500))
-    pygame.display.set_caption('user input')
-
-    user_ip = ''
-    font = pygame.font.SysFont('frenchscript',40)
-    text_box = pygame.Rect(75,75,100,50)
-    active = False
-    color = pygame.Color('purple')
-    clock = pygame.time.Clock()
-
-    boton_play = Boton(x= 50,y=200,w=150,h=150,path="images\mi_menu\\4.png")
-    while True:
-        for events in pygame.event.get():
-            if events.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-            if events.type == pygame.MOUSEBUTTONDOWN:
-                if text_box.collidepoint(events.pos):
-                    active = True
-                else:
-                    active = False
-            if events.type == pygame.KEYDOWN:
-                if active:
-                    if events.key == pygame.K_BACKSPACE:
-                        user_ip = user_ip[:-1]
-                    else:
-                        user_ip += events.unicode
-
-        screen.fill('pink')
-        if active:
-            color = pygame.Color('red')
-        else:
-            color = pygame.Color('purple')
-
-            if boton_play.click():
-                print(user_ip)
-
-        boton_play.draw(screen)
-        pygame.draw.rect(screen,color, text_box,4)
-        surf = font.render(user_ip,True,'orange')
-        screen.blit(surf, (text_box.x +5 , text_box.y +5))
-        text_box.w = max(100, surf.get_width()+10)
-        pygame.display.update()
-        clock.tick(50)
 
 
 start_menu = True
@@ -589,8 +529,8 @@ while jugando:
     delta_ms = clock.tick(FPS)
     
     if start_menu:
-        game_menu = False
         menu()
+        game_menu = False
     
 
     pygame.display.flip()

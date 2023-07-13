@@ -87,6 +87,7 @@ SOUND_VIDA = "sound\\vida.mp3"
 SOUND_PLAYER_MUERTE = "sound\muerte.mp3"
 SOUND_PLAYER_SALTO = "sound\salto.mp3"
 SOUND_LVL_3 = SOUND_LVL_2
+SOUND_WIN = "sound\win.mp3"
 # Volumen
 V_0 = 0.0
 V_25 = 0.25
