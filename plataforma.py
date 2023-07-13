@@ -36,11 +36,14 @@ class Wallpaper:
         self.background_x = -126
         self.x = x
         self.y = y
+        self.w = w
+        self.h = h
         self.screen = screen
-        self.rep_count_x = ANCHO_VENTANA // self.fotograma_ancho + h
-        self.rep_count_y = ALTO_VENTANA // self.fotograma_alto + w
+        self.rep_count_x = ANCHO_VENTANA // self.fotograma_ancho + self.w
+        self.rep_count_y = ALTO_VENTANA // self.fotograma_alto + self.h
         self.time_elapsed = 0
         self.time_interval = 100
+        
         
     def draw(self,delta_ms):
             self.time_elapsed += delta_ms

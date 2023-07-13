@@ -12,10 +12,10 @@ class Botin:
         self.y = y
         self.w = w
         self.h = h
-        self.frame = 2
+        self.frame = 0
         self.tiempo_transcurrido_animation = 0
         self.animation = self.image
-        self.frame_rate_ms = 1
+        self.frame_rate_ms = 2
         self.image = pygame.transform.scale(self.animation[self.frame],(self.w,self.h))
         self.rect = self.image.get_rect()
         self.rect.x = x

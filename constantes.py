@@ -43,13 +43,19 @@ FONDO_AGUA = "images\lvl_1\Tiles\\17.png"
 # flecha inicio
 FLECHA_INICIO = "images\lvl_1\Tiles\\20.png"
 # lvl 1
-IMAGE_TILTES = "images\lvl_1\Tiles"
+IMAGE_TILTES_1 = "images\lvl_1\Tiles"
 FONDO_LVL_1 = "images\lvl_1\\fondo\Blue.png"
 
 # lvl 2
 IMAGE_TILTES_2 = "images\lvl_2\Tiles_2"
 FONDO_LVL_2 = "images\lvl_2\\fondo\Purple.png"
 FONDO_PINCHES_LVL_2 = "images\lvl_2\\fondo\Spike.png"
+
+# lvl 3
+
+IMAGE_TILTES_3 = "images\lvl_3\Tiles_3"
+FONDO_LVL_3 = "images\lvl_3\\fondo\Pink.png"
+
 
 # Fondo info
 FONDO_INFO = "images\info\info.png"
@@ -80,7 +86,7 @@ SOUND_GAME_OVER = "sound\game_over.mp3"
 SOUND_VIDA = "sound\\vida.mp3"
 SOUND_PLAYER_MUERTE = "sound\muerte.mp3"
 SOUND_PLAYER_SALTO = "sound\salto.mp3"
-
+SOUND_LVL_3 = SOUND_LVL_2
 # Volumen
 V_0 = 0.0
 V_25 = 0.25
