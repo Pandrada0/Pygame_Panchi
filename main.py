@@ -52,7 +52,7 @@ def lvl_1()->None:
     imagen_agua_move = Wallpaper(FONDO_AGUA,screen_lvl_1,x=10,y=725,w=100,h=50)
 
     flecha = Boton(x= 10,y=650,w=50,h=50,path=FLECHA_INICIO)
-    portal = Portal(x= 180,y=585,w=150,h=150,frame_rate_ms=5)
+    portal = Portal(x= 1380,y=485,w=150,h=150,frame_rate_ms=5)
    
     player_1 = Player(x=0,y=550,speed_walk=10,speed_run=40,gravity=15,jump_power=60,interval_time_jump=40,frame_rate_ms=15,jump_height=60)
 
@@ -82,7 +82,7 @@ def lvl_1()->None:
  
         if player_1.rect.colliderect(portal.rect_ground_collition):
             pygame.time.delay(1000)
-            lvl_3(player_1,scores)
+            lvl_2(player_1,scores)
             if DEBUG_PRINT:
                 print("Pase de nivel")  
  
