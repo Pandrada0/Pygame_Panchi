@@ -6,7 +6,7 @@ __INTRODUCCION__
 Bienvenidos a Panchii Game. En esta nueva aventura tendrás que atravesar los obstáculos para llegar al portal, el cual te transporta al siguiente nivel.
 Al transcurrir los niveles la dificultad irá avanzando. ¡Pero ojo! ¡No lo vayas muy lento que el tiempo corre! Una vez finalizado el tiempo,
 Automáticamente, quedas eliminado y tendrás que volver a empezar. Te toparás con bestias, salvajes dispuestas a todo, no te acerques mucho que su piel 
-Irradia veneno y al tocarlas perderás una vida &#128147;. Come las frutas para sumar muchos puntitos &#127826; &#127822; &#127817; 	&#127819;
+Irradia veneno y al tocarlas perderás una vida &#128147;. Come las frutas para sumar muchos puntos &#127826; &#127822; &#127817; 	&#127819;
 
 PD: Para matarlas tendrás que pegarles en la cabeza. (No le digas a nadie que te dije 	&#128522;)
 
