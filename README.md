@@ -30,6 +30,15 @@ __MENU__
 
 __LVL1__
 
-*
-
 ![lvl1](https://github.com/Pandrada0/Pygame_Panchi/assets/108838669/b0e54c1c-d8c2-4a45-b8f3-9137bb3adea7)
+
+
+__lvl2_
+
+![lvl2](https://github.com/Pandrada0/Pygame_Panchi/assets/108838669/49e8c141-1636-43ea-ad01-2a19b0bd398c)
+
+
+__lvl3__
+
+![lvl3](https://github.com/Pandrada0/Pygame_Panchi/assets/108838669/7e55964a-b0f5-483b-9093-7258da19e284)
+
