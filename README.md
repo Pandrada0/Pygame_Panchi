@@ -9,7 +9,7 @@ Automáticamente, quedas eliminado y tendrás que volver a empezar.
 Te toparás con bestias, salvajes dispuestas a todo, no te acerques mucho que su piel 
 Irradia veneno y al tocarlas perderás una vida.
 
-PD: Para matarlas tendrás que pegarles en la cabeza. (No le digas a nadie que te dije ;))
+PD: Para matarlas tendrás que pegarles en la cabeza. (No le digas a nadie que te dije 	&#128522;)
 
 __¿CREES QUE TIENES LO NECESARIO? ¡ESO LO VEREMOS!__
   
