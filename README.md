@@ -23,8 +23,8 @@ __MENU__
 
 * En el menú podemos seleccionar la opción, configuración,  iniciar al juego y ver la información del creador.
   
+![menu](https://github.com/Pandrada0/Pygame_Panchi/assets/108838669/46d3da83-e82f-438b-8964-318aabe26d0e)
 
-https://github.com/Pandrada0/Pygame_Panchi/assets/108838669/164b7137-62c2-435b-94be-e03dcc270bdf
 
 
 
