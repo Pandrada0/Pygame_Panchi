@@ -6,13 +6,17 @@ __INTRODUCCION__
 Bienvenidos a Panchii Game. En esta nueva aventura tendrás que atravesar los obstáculos para llegar al portal, el cual te transporta al siguiente nivel.
 Al transcurrir los niveles la dificultad irá avanzando. ¡Pero ojo! ¡No lo vayas muy lento que el tiempo corre! Una vez finalizado el tiempo,
 Automáticamente, quedas eliminado y tendrás que volver a empezar. 
-¿CREES QUE TIENES LO NECESARIO? ¡ESO LO VEREMOS!
+Te toparás con bestias, salvajes dispuestas a todo, no te acerques mucho que su piel 
+Irradia veneno y al tocarlas perderás una vida.
+
+PD: Para matarlas tendrás que pegarles en la cabeza. (No le digas a nadie que te dije ;))
+
+__¿CREES QUE TIENES LO NECESARIO? ¡ESO LO VEREMOS!__
   
 
-_VIDEO DEL PANCHII GAME__
+_VIDEO PANCHII GAME__
 
 https://www.youtube.com/watch?v=74ToKiN-0vI&ab_channel=PabloAndrada
-
 
 
 
